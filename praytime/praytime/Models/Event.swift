@@ -38,4 +38,9 @@ struct Event: Codable {
     var location: CLLocation {
         return CLLocation(latitude: geo.latitude, longitude: geo.longitude)
     }
+    
+    func distanceInMiles(from location: CLLocation) -> Double {
+        let distance = self.location.distance(from: location)
+        return distance / 1609.344
+    }
 }

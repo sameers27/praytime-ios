@@ -19,9 +19,7 @@ extension DataManager {
             }
             else if let location = location {
                 let filteredEvents = events.filter {
-                    let distanceFromSearchLocation = $0.location.distance(from: location)
-                    let distanceInMiles = distanceFromSearchLocation / 1609.344
-                    return distanceInMiles < 25
+                    return $0.distanceInMiles(from: location) < 25
                 }
                 let sortedEvents = filteredEvents.sorted {
                     return $0.location.distance(from: location) < $1.location.distance(from: location)
