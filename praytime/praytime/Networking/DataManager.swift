@@ -15,7 +15,7 @@ class DataManager: NSObject {
     static let shared = DataManager()
     /// The Firestore database for praytime
     private let database = Firestore.firestore()
-    
+        
     /// Start up and configure database connection
     class func configure() {
         FirebaseApp.configure()

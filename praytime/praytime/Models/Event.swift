@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 struct Event: Codable {
     let name: String
@@ -33,4 +34,8 @@ struct Event: Codable {
     let juma2IqamaModified: Timestamp?
     let juma3: String?
     let juma3IqamaModified: Timestamp?
+    
+    var location: CLLocation {
+        return CLLocation(latitude: geo.latitude, longitude: geo.longitude)
+    }
 }
