@@ -62,7 +62,7 @@ extension SearchResultsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelectLocation(title: datasource[indexPath.row].title)
+        delegate?.didSelectLocation(title: !datasource[indexPath.row].subtitle.isEmpty ? datasource[indexPath.row].subtitle : datasource[indexPath.row].title)
     }
 }
 

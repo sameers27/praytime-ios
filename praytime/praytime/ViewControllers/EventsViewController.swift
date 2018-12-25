@@ -22,7 +22,7 @@ class EventsViewController: UIViewController {
         tableView.separatorStyle = .none
         view.addSubview(tableView)
         pinTableViewToEdges()
-        hideTableView(animated: false)
+        tableView(isHidden: true)
         getEvents()
     }
     
@@ -37,7 +37,6 @@ class EventsViewController: UIViewController {
         }
     }
     
-        
     func pinTableViewToEdges(topContraintTo anchor: NSLayoutYAxisAnchor? = nil) {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -45,24 +44,13 @@ class EventsViewController: UIViewController {
         tableView.topAnchor.constraint(equalTo: anchor ?? view.topAnchor).isActive = true
     }
     
-    func hideTableView(animated: Bool) {
+    func tableView(isHidden: Bool, animated: Bool = false) {
         if !animated {
-            tableView.isHidden = true
+            tableView.isHidden = isHidden
         }
         else {
             UIView.animate(withDuration: 0.3) {
-                self.tableView.isHidden = true
-            }
-        }
-    }
-    
-    func showTableView(animated: Bool) {
-        if !animated {
-            tableView.isHidden = false
-        }
-        else {
-            UIView.animate(withDuration: 0.3) {
-                self.tableView.isHidden = false
+                self.tableView.isHidden = isHidden
             }
         }
     }

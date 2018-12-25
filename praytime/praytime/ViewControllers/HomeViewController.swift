@@ -11,7 +11,8 @@ import CoreLocation
 
 class HomeViewController: EventsViewController {
     
-    let search = UISearchController(searchResultsController: SearchResultsTableViewController())
+    private let search = UISearchController(searchResultsController: SearchResultsTableViewController())
+    private var headerTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,6 @@ class HomeViewController: EventsViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = Strings.title
         
-
         search.searchBar.placeholder = Strings.searchPlaceholder
         search.searchResultsUpdater = self
         definesPresentationContext = true
@@ -38,6 +38,19 @@ class HomeViewController: EventsViewController {
         super.viewDidAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = true
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerTitle = headerTitle else { return nil }
+        return SearchHeader(title: headerTitle)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
 }
 
 extension HomeViewController: UISearchResultsUpdating {
@@ -50,9 +63,11 @@ extension HomeViewController: UISearchResultsUpdating {
 
 extension HomeViewController: SearchResultsDelegate {
     func didSelectLocation(title: String) {
+        self.headerTitle = title
+        self.tableView.reloadData()
         search.dismiss(animated: true, completion: nil)
-        search.searchBar.text = title
-        
+        self.search.searchBar.text = nil
+
         guard let events = events else { return }
         DataManager.shared.filterEvents(for: title, events: events) { (error, events) in
             if let error = error {
@@ -62,7 +77,7 @@ extension HomeViewController: SearchResultsDelegate {
                 self.events = events
                 self.tableView.reloadData()
                 if self.tableView.isHidden {
-                    self.showTableView(animated: true)
+                    self.tableView(isHidden: false, animated: true)
                 }
             }
         }
@@ -73,9 +88,6 @@ extension HomeViewController: SearchResultsDelegate {
 extension HomeViewController {
     struct Strings {
         static let title = "praytime.app"
-        static let searchPlaceholder = "Enter a location to search Iqama times"
+        static let searchPlaceholder = "Enter a location"
     }
 }
-
-
-

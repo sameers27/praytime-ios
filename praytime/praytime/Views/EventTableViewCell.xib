@@ -22,17 +22,56 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwQ-ht-m95">
                         <rect key="frame" x="16" y="11" width="288" height="229"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuH-of-Nba">
-                                <rect key="frame" x="8" y="8" width="272" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aXu-iU-5kX">
+                                <rect key="frame" x="8" y="8" width="272" height="213"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuH-of-Nba">
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="zVD-Er-cXD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssy-Ui-Yrt">
+                                        <rect key="frame" x="0.0" y="48" width="272" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMD-Ia-65T">
+                                        <rect key="frame" x="0.0" y="81" width="272" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOK-hl-Hnd">
+                                        <rect key="frame" x="0.0" y="114" width="272" height="24.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIh-ab-Ll2">
+                                        <rect key="frame" x="0.0" y="146.5" width="272" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc8-nb-hju">
+                                        <rect key="frame" x="0.0" y="179.5" width="272" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HuH-of-Nba" secondAttribute="trailing" constant="8" id="9QW-qx-gaF"/>
-                            <constraint firstItem="HuH-of-Nba" firstAttribute="top" secondItem="pwQ-ht-m95" secondAttribute="top" constant="8" id="LmL-WR-vsf"/>
-                            <constraint firstAttribute="bottom" secondItem="HuH-of-Nba" secondAttribute="bottom" constant="191" id="Uu9-Uq-1Ud"/>
-                            <constraint firstItem="HuH-of-Nba" firstAttribute="leading" secondItem="pwQ-ht-m95" secondAttribute="leading" constant="8" id="x0I-8h-aOd"/>
+                            <constraint firstItem="aXu-iU-5kX" firstAttribute="leading" secondItem="pwQ-ht-m95" secondAttribute="leading" constant="8" id="Bbe-UT-EZD"/>
+                            <constraint firstItem="aXu-iU-5kX" firstAttribute="top" secondItem="pwQ-ht-m95" secondAttribute="top" constant="8" id="WTH-KF-SlQ"/>
+                            <constraint firstAttribute="bottom" secondItem="aXu-iU-5kX" secondAttribute="bottom" constant="8" id="jgY-yy-w56"/>
+                            <constraint firstAttribute="trailing" secondItem="aXu-iU-5kX" secondAttribute="trailing" constant="8" id="qUQ-ea-qMK"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -45,7 +84,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addressLabel" destination="Ssy-Ui-Yrt" id="mFY-Bs-kvv"/>
+                <outlet property="asrLabel" destination="WIh-ab-Ll2" id="f6q-vD-0Tc"/>
+                <outlet property="container" destination="pwQ-ht-m95" id="Rsr-9R-lKt"/>
+                <outlet property="fajrLabel" destination="eMD-Ia-65T" id="Dhq-Zl-QpU"/>
+                <outlet property="maghribLabel" destination="hc8-nb-hju" id="JlN-57-KPz"/>
+                <outlet property="stackView" destination="aXu-iU-5kX" id="36k-wi-shr"/>
                 <outlet property="titleButton" destination="HuH-of-Nba" id="gpb-fm-msz"/>
+                <outlet property="zuhrLabel" destination="QOK-hl-Hnd" id="ztj-ax-ZKz"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="215.44227886056973"/>
         </tableViewCell>
