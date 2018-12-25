@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>703212078345-elje21oq37cjk3h9ifttg69qi9pls9hu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.703212078345-elje21oq37cjk3h9ifttg69qi9pls9hu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBGn4hRV9v9QenyWfnJDGTCrv15ybytnhc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>703212078345</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.praytime.praytime</string>
+	<key>PROJECT_ID</key>
+	<string>praytime-b76cb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>praytime-b76cb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:703212078345:ios:26a1e4aa64419736</string>
+	<key>DATABASE_URL</key>
+	<string>https://praytime-b76cb.firebaseio.com</string>
+</dict>
+</plist>
