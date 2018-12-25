@@ -8,50 +8,78 @@
 
 import UIKit
 
+protocol EventCellProtocol {
+    func navigateToWebView(url: URL)
+}
+
 class EventTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var container: UIView!
+    @IBOutlet private weak var container: UIView!
     @IBOutlet private weak var titleButton: UIButton!
+    @IBOutlet private weak var addressLabel: UILabel!
+    @IBOutlet weak var tableView: PrayerTableView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var fajrLabel: UILabel!
-    @IBOutlet weak var zuhrLabel: UILabel!
-    @IBOutlet weak var asrLabel: UILabel!
-    @IBOutlet weak var maghribLabel: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
+    var delegate: EventCellProtocol?
     
     var event: Event! {
         didSet {
             titleButton.setTitle(event.name, for: UIControl.State())
             addressLabel.text = event.address
-            fajrLabel.text = event.fajrIqama
-            zuhrLabel.text = event.zuhrIqama
-            asrLabel.text = event.asrIqama
-            maghribLabel.text = event.maghribIqama
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         container.layer.cornerRadius = 5
         container.layer.shadowColor = UIColor.black.cgColor
         container.layer.shadowOpacity = 0.5
         container.layer.shadowOffset = CGSize.zero
         container.layer.shadowRadius = 1
+        tableView.dataSource = self
+        tableView.delegate = self
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        stackView.arrangedSubviews.forEach {
-            $0.isHidden = false
-        }
-    }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        stackView.arrangedSubviews.forEach {
-            guard let label = $0 as? UILabel else { return }
-            $0.isHidden = label.text == nil
-        }
+        let height = tableView.contentSize.height
+        invalidate(height: height, animated: false)
     }
+    
+    func invalidate(height: CGFloat, animated: Bool) {
+        // Bail out if we are already the right height
+        if tableView.bounds.height == height { return }
+        
+        // Ensure unwanted layout changes don't get captured in the animation block
+        layoutIfNeeded()
+        
+        // Make the size tableView as tall as its content
+        tableViewHeight.constant = height
+    }
+}
+
+extension EventTableViewCell: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return event.prayers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        if !event.prayers.isEmpty {
+            cell.textLabel?.text = event.prayers[indexPath.row].name
+        }
+        return cell
+    }
+    
+    
 }

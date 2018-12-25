@@ -12,66 +12,47 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="251" id="KGk-i7-Jjw" customClass="EventTableViewCell" customModule="praytime" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="251"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="347" id="KGk-i7-Jjw" customClass="EventTableViewCell" customModule="praytime" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="347"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="250.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="346.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwQ-ht-m95">
-                        <rect key="frame" x="16" y="11" width="288" height="229"/>
+                        <rect key="frame" x="16" y="11" width="288" height="325"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aXu-iU-5kX">
-                                <rect key="frame" x="8" y="8" width="272" height="213"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuH-of-Nba">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="zVD-Er-cXD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssy-Ui-Yrt">
-                                        <rect key="frame" x="0.0" y="48" width="272" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMD-Ia-65T">
-                                        <rect key="frame" x="0.0" y="81" width="272" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOK-hl-Hnd">
-                                        <rect key="frame" x="0.0" y="114" width="272" height="24.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIh-ab-Ll2">
-                                        <rect key="frame" x="0.0" y="146.5" width="272" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc8-nb-hju">
-                                        <rect key="frame" x="0.0" y="179.5" width="272" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuH-of-Nba">
+                                <rect key="frame" x="8" y="8" width="272" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssy-Ui-Yrt">
+                                <rect key="frame" x="8" y="49" width="272" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1gq-T6-XT5" customClass="PrayerTableView">
+                                <rect key="frame" x="8" y="77.5" width="272" height="171.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="171.5" id="roJ-lR-b56"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aXu-iU-5kX" firstAttribute="leading" secondItem="pwQ-ht-m95" secondAttribute="leading" constant="8" id="Bbe-UT-EZD"/>
-                            <constraint firstItem="aXu-iU-5kX" firstAttribute="top" secondItem="pwQ-ht-m95" secondAttribute="top" constant="8" id="WTH-KF-SlQ"/>
-                            <constraint firstAttribute="bottom" secondItem="aXu-iU-5kX" secondAttribute="bottom" constant="8" id="jgY-yy-w56"/>
-                            <constraint firstAttribute="trailing" secondItem="aXu-iU-5kX" secondAttribute="trailing" constant="8" id="qUQ-ea-qMK"/>
+                            <constraint firstItem="HuH-of-Nba" firstAttribute="leading" secondItem="pwQ-ht-m95" secondAttribute="leading" constant="8" id="52R-7x-Hbb"/>
+                            <constraint firstItem="Ssy-Ui-Yrt" firstAttribute="leading" secondItem="pwQ-ht-m95" secondAttribute="leading" constant="8" id="D7M-N8-fYf"/>
+                            <constraint firstItem="1gq-T6-XT5" firstAttribute="top" secondItem="Ssy-Ui-Yrt" secondAttribute="bottom" constant="8" id="Jv7-uj-VBz"/>
+                            <constraint firstAttribute="trailing" secondItem="Ssy-Ui-Yrt" secondAttribute="trailing" constant="8" id="K8C-aC-r3j"/>
+                            <constraint firstItem="HuH-of-Nba" firstAttribute="top" secondItem="pwQ-ht-m95" secondAttribute="top" constant="8" id="REf-nD-oH1"/>
+                            <constraint firstItem="Ssy-Ui-Yrt" firstAttribute="top" secondItem="HuH-of-Nba" secondAttribute="bottom" constant="8" id="c72-K5-8rG"/>
+                            <constraint firstItem="1gq-T6-XT5" firstAttribute="leading" secondItem="pwQ-ht-m95" secondAttribute="leading" constant="8" id="ci6-wC-xsL"/>
+                            <constraint firstAttribute="bottom" secondItem="1gq-T6-XT5" secondAttribute="bottom" constant="76" id="cxg-1P-hTP"/>
+                            <constraint firstAttribute="trailing" secondItem="1gq-T6-XT5" secondAttribute="trailing" constant="8" id="fjI-4Q-yBm"/>
+                            <constraint firstAttribute="trailing" secondItem="HuH-of-Nba" secondAttribute="trailing" constant="8" id="s90-LY-eVs"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -85,15 +66,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressLabel" destination="Ssy-Ui-Yrt" id="mFY-Bs-kvv"/>
-                <outlet property="asrLabel" destination="WIh-ab-Ll2" id="f6q-vD-0Tc"/>
                 <outlet property="container" destination="pwQ-ht-m95" id="Rsr-9R-lKt"/>
-                <outlet property="fajrLabel" destination="eMD-Ia-65T" id="Dhq-Zl-QpU"/>
-                <outlet property="maghribLabel" destination="hc8-nb-hju" id="JlN-57-KPz"/>
-                <outlet property="stackView" destination="aXu-iU-5kX" id="36k-wi-shr"/>
+                <outlet property="tableView" destination="1gq-T6-XT5" id="bnW-lY-P7L"/>
+                <outlet property="tableViewHeight" destination="roJ-lR-b56" id="91v-2J-gOa"/>
                 <outlet property="titleButton" destination="HuH-of-Nba" id="gpb-fm-msz"/>
-                <outlet property="zuhrLabel" destination="QOK-hl-Hnd" id="ztj-ax-ZKz"/>
             </connections>
-            <point key="canvasLocation" x="137.59999999999999" y="215.44227886056973"/>
+            <point key="canvasLocation" x="137.59999999999999" y="258.62068965517244"/>
         </tableViewCell>
     </objects>
 </document>

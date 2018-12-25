@@ -62,7 +62,7 @@ extension EventsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 200
     }
 }
 
@@ -76,6 +76,7 @@ extension EventsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
         guard let events = events else { return cell }
         cell.event = events[indexPath.row]
+        cell.setNeedsLayout()
         return cell
     }
 }
