@@ -11,6 +11,11 @@ import CoreLocation
 
 extension DataManager {
     
+    static let maxMiles: Double = 50
+    
+    /// Filter events by location
+    /// - Parameters:
+    ///     - location: The location string to check distance from
     func filterEvents(for location: String) {
         guard let events = events else { return }
         self.delegate?.isloading(true)
@@ -19,9 +24,11 @@ extension DataManager {
                 self.delegate?.eventsDidFail(error: error)
             }
             else if let location = location {
+                // filter the array with events within a radius of given location.
                 let filteredEvents = events.filter {
-                    return $0.distanceInMiles(from: location) < 50
+                    return $0.distanceInMiles(from: location) < DataManager.maxMiles
                 }
+                // sort the array by distance closest to the given location.
                 let sortedEvents = filteredEvents.sorted {
                     return $0.location.distance(from: location) < $1.location.distance(from: location)
                 }
@@ -31,11 +38,7 @@ extension DataManager {
         }
     }
     
-    func filterBookmaredEvents()  {
-        guard let events = events else { return }
-        self.delegate?.didReceieveFilteredEvents(events: events.filter { $0.bookmarked })
-    }
-    
+    /// Find the Coordinates for a location from a given string
     private func findLocation(from string: String, completion: @escaping (_ error: Error?, _ location: CLLocation?) -> () ) {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(string) { (placemarks, error) in
@@ -48,7 +51,14 @@ extension DataManager {
             }
         }
     }
+    
+    /// Filter the events array by bookmarked events
+    func filterBookmaredEvents()  {
+        guard let events = events else { return }
+        self.delegate?.didReceieveFilteredEvents(events: events.filter { $0.bookmarked })
+    }
 
+    /// Store an event id in the UserDefaults bookmarks array
     func bookmarkEvent(event: Event) {
         var bookmarks: [String] = []
         if let arr: [String] = UserDefaults.standard.array(forKey: Strings.bookmarks) as? [String] {
@@ -58,14 +68,7 @@ extension DataManager {
         UserDefaults.standard.set(bookmarks, forKey: Strings.bookmarks)
     }
     
-    func isEventBookmarked(event: Event) -> Bool {
-        guard let arr: [String] = UserDefaults.standard.array(forKey: Strings.bookmarks) as? [String] else { return false }
-        if arr.contains(event.uuid4) {
-            return true
-        }
-        return false
-    }
-    
+    /// Remove an event id in the UserDefaults bookmarks array
     func removeBookmark(event: Event) {
         var bookmarks: [String] = []
         if let arr: [String] = UserDefaults.standard.array(forKey: Strings.bookmarks) as? [String] {
@@ -75,6 +78,15 @@ extension DataManager {
             return $0 != event.uuid4
         }
         UserDefaults.standard.set(bookmarks, forKey: Strings.bookmarks)
+    }
+    
+    /// Check if an event is bookmarked
+    func isEventBookmarked(event: Event) -> Bool {
+        guard let arr: [String] = UserDefaults.standard.array(forKey: Strings.bookmarks) as? [String] else { return false }
+        if arr.contains(event.uuid4) {
+            return true
+        }
+        return false
     }
  
 }
