@@ -9,13 +9,12 @@
 import UIKit
 
 class EventsViewController: UIViewController {
+    /// Filtered events that are displayed to the user
     var filteredEvents: [Event]?
+    /// Table view displayed
     let tableView: UITableView = UITableView()
-    var isFavorites: Bool =  false
-    
-    private var cellHeight: [IndexPath: CGFloat] = [:]
-    
-    typealias EventsCallback =  (_ error: Error?, _ events: [Event]?) -> ()
+    /// Cache of cell heights once calculated to reload with correct estimated height
+    private var cellHeights: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +58,12 @@ extension EventsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let height = cellHeight[indexPath] else { return 200 }
+        guard let height = cellHeights[indexPath] else { return 200 }
         return height
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cellHeight[indexPath] = cell.frame.size.height
+        cellHeights[indexPath] = cell.frame.size.height
     }
 }
 
@@ -85,9 +84,7 @@ extension EventsViewController: UITableViewDataSource {
 }
 
 extension EventsViewController: DataManagerDelegate {
-    func isloading(_: Bool) {
-        
-    }
+    func isloading(_ loading: Bool) {}
     
     func didReceieveFilteredEvents(events: [Event]) {
         filteredEvents = events
@@ -99,9 +96,7 @@ extension EventsViewController: DataManagerDelegate {
         }
     }
     
-    func eventsDidFail(error: Error) {
-        
-    }
+    func eventsDidFail(error: Error) {}
 }
 
 extension EventsViewController: EventView {

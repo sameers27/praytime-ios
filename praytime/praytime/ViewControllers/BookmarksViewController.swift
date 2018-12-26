@@ -14,12 +14,18 @@ class BookmarksViewController: EventsViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Bookmarks"
+        title = Strings.title
         
         DataManager.shared.filterBookmaredEvents()
     }
     
     override func eventBookmarked() {
         DataManager.shared.filterBookmaredEvents()
+    }
+}
+
+extension BookmarksViewController {
+    struct Strings {
+        static let title = "Bookmarks"
     }
 }

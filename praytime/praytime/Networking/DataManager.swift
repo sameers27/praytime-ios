@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 protocol DataManagerDelegate {
-    func isloading(_ : Bool)
+    func isloading(_ loading: Bool)
     func didReceieveFilteredEvents(events: [Event])
     func eventsDidFail(error: Error)
 }
@@ -39,7 +39,7 @@ class DataManager: NSObject {
     /// - Parameters:
     ///     - completion: The closure that returns and optional error, or an optional array of events
     func getEvents() {
-        self.delegate?.isloading(true)
+        delegate?.isloading(true)
         database.collection(Strings.events).getDocuments { (snapshot, error) in
             if let error = error {
                 self.delegate?.eventsDidFail(error: error)
