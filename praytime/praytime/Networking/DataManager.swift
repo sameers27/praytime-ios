@@ -68,5 +68,6 @@ class DataManager: NSObject {
 extension DataManager {
     struct Strings {
         static let events = "Events"
+        static let bookmarks = "Bookmarks"
     }
 }

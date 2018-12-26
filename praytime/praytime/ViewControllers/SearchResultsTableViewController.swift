@@ -20,7 +20,6 @@ class SearchResultsTableViewController: UITableViewController {
     private var datasource: [LocationResult] = []
     
     var delegate: SearchResultsDelegate?
-//    let activityIndicator = UIActivityIndicatorView(style: .gray)
     
     lazy var searchCompleter: MKLocalSearchCompleter = {
         let completer = MKLocalSearchCompleter()
@@ -31,8 +30,6 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        activityIndicator.center = view.center
-//        view.addSubview(activityIndicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +40,6 @@ class SearchResultsTableViewController: UITableViewController {
     
     func update(text: String) {
         if !text.isEmpty {
-//            activityIndicator.startAnimating()
             searchCompleter.queryFragment = text
         }
     }
@@ -71,7 +67,6 @@ extension SearchResultsTableViewController: MKLocalSearchCompleterDelegate {
         datasource = completer.results.map {
             LocationResult(title: $0.title, subtitle: $0.subtitle, location: $0.title)
         }
-//        activityIndicator.stopAnimating()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
