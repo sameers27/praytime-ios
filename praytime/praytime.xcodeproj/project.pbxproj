@@ -35,6 +35,7 @@
 		42E2304E21D30DF8003A01A8 /* EventInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304D21D30DF8003A01A8 /* EventInfoStackView.swift */; };
 		42E2305021D321C3003A01A8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304F21D321C3003A01A8 /* WebViewController.swift */; };
 		42E2305221D349F1003A01A8 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2305121D349F1003A01A8 /* BookmarksViewController.swift */; };
+		42E2305421D3F0F9003A01A8 /* Event+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2305321D3F0F9003A01A8 /* Event+Utilities.swift */; };
 		588BD1CD7507FC064F019B89 /* Pods_praytimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A17D1A0A9AE45F7B8028F84 /* Pods_praytimeTests.framework */; };
 		E3E1BC542EA165E7EF2339F6 /* Pods_praytimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B9D8599E4957F4D55CB1A4 /* Pods_praytimeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		42E2304D21D30DF8003A01A8 /* EventInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoStackView.swift; sourceTree = "<group>"; };
 		42E2304F21D321C3003A01A8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		42E2305121D349F1003A01A8 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		42E2305321D3F0F9003A01A8 /* Event+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Utilities.swift"; sourceTree = "<group>"; };
 		886986BB73737F1AC2099A4B /* Pods-praytimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-praytimeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-praytimeUITests/Pods-praytimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A17D1A0A9AE45F7B8028F84 /* Pods_praytimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_praytimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DF61B05A18CF2A0F7DD23 /* Pods-praytimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-praytimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-praytimeTests/Pods-praytimeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				42E2302621D02F68003A01A8 /* Event.swift */,
+				42E2305321D3F0F9003A01A8 /* Event+Utilities.swift */,
 				42E2302C21D075B8003A01A8 /* GeoPoint+Codable.swift */,
 				42E2302E21D0B251003A01A8 /* TimeStamp+Codable.swift */,
 				42E2303C21D2497D003A01A8 /* Prayer.swift */,
@@ -201,11 +204,11 @@
 		42E2302121D027C5003A01A8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				42E2302421D0280C003A01A8 /* HomeViewController.swift */,
 				42E2303421D0D6D1003A01A8 /* EventsViewController.swift */,
-				42E2303821D1598F003A01A8 /* SearchResultsTableViewController.swift */,
-				42E2304F21D321C3003A01A8 /* WebViewController.swift */,
+				42E2302421D0280C003A01A8 /* HomeViewController.swift */,
 				42E2305121D349F1003A01A8 /* BookmarksViewController.swift */,
+				42E2304F21D321C3003A01A8 /* WebViewController.swift */,
+				42E2303821D1598F003A01A8 /* SearchResultsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E2304521D2DA6E003A01A8 /* UIView+Extensions.swift in Sources */,
+				42E2305421D3F0F9003A01A8 /* Event+Utilities.swift in Sources */,
 				42E2305021D321C3003A01A8 /* WebViewController.swift in Sources */,
 				42E2303B21D242D4003A01A8 /* SearchHeader.swift in Sources */,
 				42E2303721D1519A003A01A8 /* DataManager+Event.swift in Sources */,

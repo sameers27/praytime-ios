@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// The header view for the events table view when searching
 class SearchHeader: UIView {
     
     private let locationTitle: String

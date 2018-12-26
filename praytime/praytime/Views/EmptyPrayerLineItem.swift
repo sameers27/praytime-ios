@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Line item shown in EventTableViewCell when no prayers are available
 class EmptyPrayerLineItem: UIView {
 
     init() {

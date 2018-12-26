@@ -14,13 +14,16 @@ protocol SearchResultsDelegate {
     func didSelectLocation(title: String)
 }
 
+/// Backing tableview controller for searching
 class SearchResultsTableViewController: UITableViewController {
 
+    /// Tuple type that holds location information for a selected search result
     typealias LocationResult = (title: String, subtitle: String, location: String)
+    /// Search results
     private var datasource: [LocationResult] = []
-    
+    /// Search results delegate
     var delegate: SearchResultsDelegate?
-    
+    /// Lazy MKLocalSearchCompleter instance
     lazy var searchCompleter: MKLocalSearchCompleter = {
         let completer = MKLocalSearchCompleter()
         completer.filterType = .locationsOnly
