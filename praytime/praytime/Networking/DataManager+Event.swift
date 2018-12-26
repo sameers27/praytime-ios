@@ -19,7 +19,7 @@ extension DataManager {
             }
             else if let location = location {
                 let filteredEvents = events.filter {
-                    return $0.distanceInMiles(from: location) < 25
+                    return $0.distanceInMiles(from: location) < 50
                 }
                 let sortedEvents = filteredEvents.sorted {
                     return $0.location.distance(from: location) < $1.location.distance(from: location)
@@ -29,8 +29,8 @@ extension DataManager {
         }
     }
     
-    func filterBookmaredEvents(events: [Event]) {
-        
+    func filterBookmaredEvents(events: [Event]) -> [Event] {
+        return events.filter { $0.bookmarked }
     }
     
     private func findLocation(from string: String, completion: @escaping (_ error: Error?, _ location: CLLocation?) -> () ) {
