@@ -63,26 +63,27 @@ extension HomeViewController: UISearchResultsUpdating {
 
 extension HomeViewController: SearchResultsDelegate {
     func didSelectLocation(title: String) {
-        self.headerTitle = title
-        self.tableView.reloadData()
+        headerTitle = title
+        tableView.reloadData()
         search.dismiss(animated: true, completion: nil)
-        self.search.searchBar.text = nil
-
+        search.searchBar.text = nil
+        
         guard let events = events else { return }
+        
         DataManager.shared.filterEvents(for: title, events: events) { (error, events) in
             if let error = error {
                 print("There was an error: \(error.localizedDescription)")
             }
             else if let events = events {
-                self.events = events
+                self.filteredEvents = events
                 self.tableView.reloadData()
                 if self.tableView.isHidden {
                     self.tableView(isHidden: false, animated: true)
                 }
             }
         }
+        
     }
-    
 }
 
 extension HomeViewController {

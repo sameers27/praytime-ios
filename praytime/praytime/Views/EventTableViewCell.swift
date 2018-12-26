@@ -8,26 +8,30 @@
 
 import UIKit
 
+protocol EventView {
+    func navigate(event: Event)
+    func openWebView(url: URL)
+    func eventBookmarked()
+}
+
 class EventTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var container: UIView!
-    @IBOutlet private weak var titleButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var container: UIView!
+    @IBOutlet private weak var addressLabel: UILabel!
+    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private weak var updatedLabel: UILabel!
+    @IBOutlet private weak var bookmarkButton: UIButton!
     
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var fajrLabel: UILabel!
-    @IBOutlet weak var zuhrLabel: UILabel!
-    @IBOutlet weak var asrLabel: UILabel!
-    @IBOutlet weak var maghribLabel: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
+    var delegate: EventView?
     
     var event: Event! {
         didSet {
-            titleButton.setTitle(event.name, for: UIControl.State())
+            titleLabel.text = event.name
             addressLabel.text = event.address
-            fajrLabel.text = event.fajrIqama
-            zuhrLabel.text = event.zuhrIqama
-            asrLabel.text = event.asrIqama
-            maghribLabel.text = event.maghribIqama
+            updatedLabel.text = event.lastUpdatedText
+            setBookmarkedImage()
+            populateStackView()
         }
     }
     
@@ -38,20 +42,69 @@ class EventTableViewCell: UITableViewCell {
         container.layer.shadowOpacity = 0.5
         container.layer.shadowOffset = CGSize.zero
         container.layer.shadowRadius = 1
+        selectionStyle = .none
+        titleLabel.textColor = UIColor(named: "PrayTimeBlue")
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        stackView.arrangedSubviews.forEach {
-            $0.isHidden = false
+        addressLabel.text = nil
+        titleLabel.text = nil
+        stackView.removeAllArrangedSubviews()
+    }
+    
+    @IBAction func titlePressed(_ sender: Any) {
+        guard let url = event.url else { return }
+        delegate?.openWebView(url: url)
+    }
+    
+    @IBAction func reportAnErrorPressed(_ sender: Any) {
+        let urlString = "https://gitreports.com/issue/praytime/praytime?issue_title="
+        let path = "\(event.name) ref:\(event.uuid4)"
+        let escapedPath = path.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        guard let percentEncoded = escapedPath else { return }
+        guard let url = URL(string: urlString + percentEncoded) else { return }
+        delegate?.openWebView(url: url)
+    }
+    
+    func setBookmarkedImage() {
+        if event.bookmarked {
+            bookmarkButton.setImage(UIImage.init(named: "bookmarkFilled"), for: UIControl.State())
+        }
+        else {
+            bookmarkButton.setImage(UIImage.init(named: "bookmarkUnfilled"), for: UIControl.State())
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        stackView.arrangedSubviews.forEach {
-            guard let label = $0 as? UILabel else { return }
-            $0.isHidden = label.text == nil
+    @IBAction func bookmarkPressed(_ sender: Any) {
+        if event.bookmarked {
+            DataManager.shared.removeBookmark(event: event)
         }
+        else {
+            DataManager.shared.bookmarkEvent(event: event)
+        }
+        delegate?.eventBookmarked()
+    }
+    
+    func populateStackView() {
+        let eventInfo = EventInfoStackView(event: event)
+        eventInfo.delegate = self
+        stackView.addArrangedSubview(eventInfo)
+        if event.prayers.isEmpty {
+            stackView.addArrangedSubview(EmptyPrayerLineItem())
+        }
+        else {
+            event.prayers.forEach {
+                let lineItem: PrayerLineItem = .fromNib()
+                lineItem.prayer = $0
+                stackView.addArrangedSubview(lineItem)
+            }
+        }
+    }
+}
+
+extension EventTableViewCell: EventInfo {
+    func navigate() {
+        delegate?.navigate(event: event)
     }
 }

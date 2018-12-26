@@ -10,11 +10,21 @@ import UIKit
 
 class EventsViewController: UIViewController {
     var events: [Event]?
+    var filteredEvents: [Event]?
     let tableView: UITableView = UITableView()
     var isFavorites: Bool =  false
     
+    private var cellHeight: [IndexPath: CGFloat] = [:]
+    
+    typealias EventsCallback =  (_ error: Error?, _ events: [Event]?) -> ()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        getEvents()
+    }
+    
+    func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
@@ -23,18 +33,6 @@ class EventsViewController: UIViewController {
         view.addSubview(tableView)
         pinTableViewToEdges()
         tableView(isHidden: true)
-        getEvents()
-    }
-    
-    func getEvents() {
-        DataManager.shared.getEvents { (error, events) in
-            if let error = error {
-                print("There was an error: \(error.localizedDescription)")
-            }
-            else if let events = events {
-                self.events = events
-            }
-        }
     }
     
     func pinTableViewToEdges(topContraintTo anchor: NSLayoutYAxisAnchor? = nil) {
@@ -54,6 +52,18 @@ class EventsViewController: UIViewController {
             }
         }
     }
+    
+    func getEvents(completion: EventsCallback? = nil) {
+        DataManager.shared.getEvents { (error, events) in
+            if let error = error {
+                completion?(error, nil)
+            }
+            else if let events = events {
+                self.events = events
+                completion?(nil, events)
+            }
+        }
+    }
 }
 
 extension EventsViewController: UITableViewDelegate {
@@ -62,20 +72,45 @@ extension EventsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        guard let height = cellHeight[indexPath] else { return 200 }
+        return height
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellHeight[indexPath] = cell.frame.size.height
     }
 }
 
 extension EventsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let events = events else { return 0 }
+        guard let events = filteredEvents else { return 0 }
         return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
-        guard let events = events else { return cell }
+        guard let events = filteredEvents else { return cell }
         cell.event = events[indexPath.row]
+        cell.delegate = self
+        cell.setNeedsLayout()
         return cell
+    }
+}
+
+extension EventsViewController: EventView {
+    func navigate(event: Event) {
+        print(event)
+    }
+    
+    func openWebView(url: URL) {
+        let vc = WebViewController()
+        vc.url = url
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func eventBookmarked() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }

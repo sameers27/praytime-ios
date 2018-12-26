@@ -46,4 +46,32 @@ extension DataManager {
         }
     }
 
+    func bookmarkEvent(event: Event) {
+        var bookmarks: [String] = []
+        if let arr: [String] = UserDefaults.standard.array(forKey: Strings.bookmarks) as? [String] {
+            bookmarks = arr
+        }
+        bookmarks.append(event.uuid4)
+        UserDefaults.standard.set(bookmarks, forKey: Strings.bookmarks)
+    }
+    
+    func isEventBookmarked(event: Event) -> Bool {
+        guard let arr: [String] = UserDefaults.standard.array(forKey: Strings.bookmarks) as? [String] else { return false }
+        if arr.contains(event.uuid4) {
+            return true
+        }
+        return false
+    }
+    
+    func removeBookmark(event: Event) {
+        var bookmarks: [String] = []
+        if let arr: [String] = UserDefaults.standard.array(forKey: Strings.bookmarks) as? [String] {
+            bookmarks = arr
+        }
+        bookmarks = bookmarks.filter {
+            return $0 != event.uuid4
+        }
+        UserDefaults.standard.set(bookmarks, forKey: Strings.bookmarks)
+    }
+ 
 }
