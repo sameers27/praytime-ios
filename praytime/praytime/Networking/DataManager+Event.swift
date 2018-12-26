@@ -29,8 +29,8 @@ extension DataManager {
         }
     }
     
-    func filterBookmaredEvents(events: [Event]) {
-        
+    func filterBookmaredEvents(events: [Event]) -> [Event] {
+        return events.filter { $0.bookmarked }
     }
     
     private func findLocation(from string: String, completion: @escaping (_ error: Error?, _ location: CLLocation?) -> () ) {
