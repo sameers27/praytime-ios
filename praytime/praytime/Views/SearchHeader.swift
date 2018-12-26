@@ -43,6 +43,6 @@ class SearchHeader: UIView {
 
 extension SearchHeader {
     struct Strings {
-        static let headerDistanceText = "Prayer times within 25 miles of "
+        static let headerDistanceText = "Prayer times within 50 miles of "
     }
 }
