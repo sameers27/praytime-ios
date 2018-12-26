@@ -9,8 +9,11 @@
 import UIKit
 
 protocol EventView {
+    /// Navigate the user to the event location
     func navigate(event: Event)
+    /// Open a webview with a given url
     func openWebView(url: URL)
+    /// Event has been bookmarked
     func eventBookmarked()
 }
 

@@ -12,6 +12,7 @@ protocol EventInfo {
     func navigate()
 }
 
+/// Stack View shown in EventTableViewCell showing distance, sunrise, and sunset times.
 class EventInfoStackView: UIStackView {
     
     private var event: Event!
@@ -31,10 +32,6 @@ class EventInfoStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-   
     private func addNavigationButton() {
         guard let distance = event.distanceFromSearchedLocation else { return }
         let button = UIButton(type: .custom)
