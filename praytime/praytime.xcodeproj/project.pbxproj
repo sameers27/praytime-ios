@@ -27,6 +27,13 @@
 		42E2303921D1598F003A01A8 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2303821D1598F003A01A8 /* SearchResultsTableViewController.swift */; };
 		42E2303B21D242D4003A01A8 /* SearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2303A21D242D4003A01A8 /* SearchHeader.swift */; };
 		42E2303D21D2497D003A01A8 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2303C21D2497D003A01A8 /* Prayer.swift */; };
+		42E2304121D2D513003A01A8 /* PrayerLineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304021D2D513003A01A8 /* PrayerLineItem.swift */; };
+		42E2304321D2D963003A01A8 /* PrayerLineItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42E2304221D2D963003A01A8 /* PrayerLineItem.xib */; };
+		42E2304521D2DA6E003A01A8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304421D2DA6E003A01A8 /* UIView+Extensions.swift */; };
+		42E2304A21D30713003A01A8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304921D30713003A01A8 /* UIStackView+Extensions.swift */; };
+		42E2304C21D30780003A01A8 /* EmptyPrayerLineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304B21D30780003A01A8 /* EmptyPrayerLineItem.swift */; };
+		42E2304E21D30DF8003A01A8 /* EventInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304D21D30DF8003A01A8 /* EventInfoStackView.swift */; };
+		42E2305021D321C3003A01A8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E2304F21D321C3003A01A8 /* WebViewController.swift */; };
 		588BD1CD7507FC064F019B89 /* Pods_praytimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A17D1A0A9AE45F7B8028F84 /* Pods_praytimeTests.framework */; };
 		E3E1BC542EA165E7EF2339F6 /* Pods_praytimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B9D8599E4957F4D55CB1A4 /* Pods_praytimeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +85,13 @@
 		42E2303821D1598F003A01A8 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		42E2303A21D242D4003A01A8 /* SearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeader.swift; sourceTree = "<group>"; };
 		42E2303C21D2497D003A01A8 /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
+		42E2304021D2D513003A01A8 /* PrayerLineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerLineItem.swift; sourceTree = "<group>"; };
+		42E2304221D2D963003A01A8 /* PrayerLineItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrayerLineItem.xib; sourceTree = "<group>"; };
+		42E2304421D2DA6E003A01A8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		42E2304921D30713003A01A8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		42E2304B21D30780003A01A8 /* EmptyPrayerLineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPrayerLineItem.swift; sourceTree = "<group>"; };
+		42E2304D21D30DF8003A01A8 /* EventInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoStackView.swift; sourceTree = "<group>"; };
+		42E2304F21D321C3003A01A8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		886986BB73737F1AC2099A4B /* Pods-praytimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-praytimeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-praytimeUITests/Pods-praytimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A17D1A0A9AE45F7B8028F84 /* Pods_praytimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_praytimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3DF61B05A18CF2A0F7DD23 /* Pods-praytimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-praytimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-praytimeTests/Pods-praytimeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +152,7 @@
 		424F3F572194139F005D3546 /* praytime */ = {
 			isa = PBXGroup;
 			children = (
+				42E2304821D306E7003A01A8 /* Utilities */,
 				42E2302021D027BC003A01A8 /* Models */,
 				42E2302321D027D2003A01A8 /* Networking */,
 				42E2302221D027CD003A01A8 /* Views */,
@@ -187,6 +202,7 @@
 				42E2302421D0280C003A01A8 /* HomeViewController.swift */,
 				42E2303421D0D6D1003A01A8 /* EventsViewController.swift */,
 				42E2303821D1598F003A01A8 /* SearchResultsTableViewController.swift */,
+				42E2304F21D321C3003A01A8 /* WebViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -197,6 +213,10 @@
 				42E2303021D0D19F003A01A8 /* EventTableViewCell.swift */,
 				42E2303121D0D19F003A01A8 /* EventTableViewCell.xib */,
 				42E2303A21D242D4003A01A8 /* SearchHeader.swift */,
+				42E2304021D2D513003A01A8 /* PrayerLineItem.swift */,
+				42E2304221D2D963003A01A8 /* PrayerLineItem.xib */,
+				42E2304B21D30780003A01A8 /* EmptyPrayerLineItem.swift */,
+				42E2304D21D30DF8003A01A8 /* EventInfoStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +228,15 @@
 				42E2303621D1519A003A01A8 /* DataManager+Event.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		42E2304821D306E7003A01A8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				42E2304421D2DA6E003A01A8 /* UIView+Extensions.swift */,
+				42E2304921D30713003A01A8 /* UIStackView+Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		464F009B17C69E83E42FE316 /* Pods */ = {
@@ -343,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E2303321D0D19F003A01A8 /* EventTableViewCell.xib in Resources */,
+				42E2304321D2D963003A01A8 /* PrayerLineItem.xib in Resources */,
 				424F3F63219413A0005D3546 /* LaunchScreen.storyboard in Resources */,
 				42E2302921D05EC6003A01A8 /* GoogleService-Info.plist in Resources */,
 				424F3F60219413A0005D3546 /* Assets.xcassets in Resources */,
@@ -496,6 +526,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E2304521D2DA6E003A01A8 /* UIView+Extensions.swift in Sources */,
+				42E2305021D321C3003A01A8 /* WebViewController.swift in Sources */,
 				42E2303B21D242D4003A01A8 /* SearchHeader.swift in Sources */,
 				42E2303721D1519A003A01A8 /* DataManager+Event.swift in Sources */,
 				42E2302D21D075B8003A01A8 /* GeoPoint+Codable.swift in Sources */,
@@ -504,9 +536,13 @@
 				424F3F592194139F005D3546 /* AppDelegate.swift in Sources */,
 				42E2303D21D2497D003A01A8 /* Prayer.swift in Sources */,
 				42E2302B21D05F24003A01A8 /* DataManager.swift in Sources */,
+				42E2304E21D30DF8003A01A8 /* EventInfoStackView.swift in Sources */,
 				42E2302F21D0B251003A01A8 /* TimeStamp+Codable.swift in Sources */,
 				42E2303221D0D19F003A01A8 /* EventTableViewCell.swift in Sources */,
 				42E2302721D02F68003A01A8 /* Event.swift in Sources */,
+				42E2304A21D30713003A01A8 /* UIStackView+Extensions.swift in Sources */,
+				42E2304C21D30780003A01A8 /* EmptyPrayerLineItem.swift in Sources */,
+				42E2304121D2D513003A01A8 /* PrayerLineItem.swift in Sources */,
 				42E2302521D0280C003A01A8 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
