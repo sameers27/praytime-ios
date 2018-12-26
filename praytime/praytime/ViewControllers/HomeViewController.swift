@@ -27,6 +27,8 @@ class HomeViewController: EventsViewController {
         
         let searchController = search.searchResultsController as! SearchResultsTableViewController
         searchController.delegate = self
+        
+        getEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {

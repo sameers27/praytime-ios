@@ -21,7 +21,6 @@ class EventsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        getEvents()
     }
     
     func setupTableView() {
@@ -108,7 +107,7 @@ extension EventsViewController: EventView {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func eventBookmarked() {
+    @objc func eventBookmarked() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
